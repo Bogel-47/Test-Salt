@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Customer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Customer</h1>
+    <form action="/customers/add_user" method="post">
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <input type="text" name="alamat" class="form-control" placeholder="Alamat">
+      </div>
+      <div class="form-group">
+        <input type="text" name="kota" class="form-control" placeholder="Kota">
+      </div>
+      <div class="form-group">
+        <input type="text" name="provinsi" class="form-control" placeholder="Provinsi">
+      </div>
+      <div class="form-group">
+        <input type="text" name="status" class="form-control" placeholder="Aktif/Tidak Aktif">
+      </div>
+      <div class="form-group">
+        <input type="date" name="tgl_registrasi" class="form-control" placeholder="Tanggal">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Customer</button>
+    </form>
+  </div>
+  <script>
+    var dataToSend = {
+    nama: document.querySelector('input[name="name"]').value,
+    alamat: document.querySelector('input[name="alamat"]').value,
+    kota: document.querySelector('input[name="kota"]').value,
+    provinsi: document.querySelector('input[name="provinsi"]').value,
+    status: document.querySelector('input[name="status"]').value,
+    tgl_registrasi: document.querySelector('input[name="tgl_registrasi"]').value
+    };
+    var jsonData = JSON.stringify(dataToSend);
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "/customers/add_user", true);
+
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+        } else {
+        }
+    };
+    xhr.send(jsonData);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Customer</title>
+</head>
+<body>
+    <form action="/customers/update" method="post">
+        <input type="hidden" name="id" th:value="${customer.id}">
+        <input type="text" name="name" th:value="${customer.name}" placeholder="Name">
+        <input type="email" name="email" th:value="${customer.email}" placeholder="Email">
+        <input type="text" name="phone" th:value="${customer.phone}" placeholder="Phone">
+        <input type="submit" value="Update Customer">
+    </form>
+</body>
+</html>

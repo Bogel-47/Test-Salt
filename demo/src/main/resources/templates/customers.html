@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Customers</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <h1>Customers</h1>
+  <ul>
+    <li th:each="customer : ${customers}">
+        <span th:text="${customer.nama}"></span>
+        <a th:href="@{'/customers/update?id=' + ${customer.custId}}">Edit</a>
+        <a th:href="@{'/customers/delete?id=' + ${customer.custId}}" data-method="put">Delete</a>
+        <a th:href="@{'/customers/detail?id=' + ${customer.custId}}">Detail</a>
+    </li>
+  </ul>
+  <a th:href="@{'/customers/add'}">Add</a>
+</body>
+</html>
